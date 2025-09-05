@@ -1,0 +1,1 @@
+const map=L.map('map').setView([48.8566,2.3522],4);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OSM'}).addTo(map);fetch('data/places.geojson').then(r=>r.json()).then(g=>{L.geoJSON(g,{onEachFeature:(f,l)=>l.bindPopup(`<strong>${f.properties.name}</strong> <br>${f.properties.note}`)}).addTo(map);});
